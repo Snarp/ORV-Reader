@@ -163,9 +163,9 @@ for file_index, file in enumerate(os.listdir("chapters/cont")):
                 if line.startswith("["):
                     line = line[4:]
                 note_index += 1
-                xhtml += f"""<a href="#note{note_index}" epub:type="noteref">[NOTE {note_index}]</a>"""
+                xhtml += f"""<a href="#note{note_index}" id="noteref{note_index}" epub:type="noteref">[NOTE {note_index}]</a>"""
                 notes.append(
-                    f"""<aside id="note{note_index}" epub:type="footnote"><p>Note [{note_index}]: {line}</p></aside>"""
+                    f"""<aside id="note{note_index}" epub:type="footnote"><p>Note [{note_index}]: {line} <a href="#noteref{note_index}" epub:type="backlink">↩</a></p></aside>"""
                 )
 
             elif line == "+":
